@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Card, Row, Col, Spinner, Alert } from 'react-bootstrap';
+import {act} from "react-dom/test-utils";
 
 function AddressBook() {
     const [persons, setPersons] = useState([]);
@@ -23,9 +24,11 @@ function AddressBook() {
                     localStorage.setItem("persons", JSON.stringify(response.data.results));
                 })
                 .catch(error => {
+                    act(() => {
                     setError(error.message);
                     setLoading(false);
                 });
+            });
         }
     }, []);
 
