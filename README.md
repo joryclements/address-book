@@ -4,7 +4,7 @@
 3. Run `npm install` to install the dependencies.
 4. Run `npm start` to start the application.
 5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-6. To run the tests, run `react-scripts test`.
+6. To run the tests, run `npm test`.
 
 # Project Details
 ### Overall Approach

@@ -36,6 +36,7 @@ describe('Settings', () => {
 
         fireEvent.click(screen.getByRole('button', { name: /submit/i }));
 
-        await screen.findByText('Failed to fetch new list of people.');
+        await screen.findByText(/failed to fetch new list of people/i);
+
     });
 });
