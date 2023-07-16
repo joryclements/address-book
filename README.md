@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# How to Deploy and Run
+1. Clone the repository to your local machine.
+2. Navigate to the project directory (`address-book`).
+3. Run `npm install` to install the dependencies.
+4. Run `npm start` to start the application.
+5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+6. To run the tests, run `react-scripts test`.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project Details
+### Overall Approach
+I approached the assignment by first understanding the requirements and what the application should accomplish. Then I designed the components that would be needed - the Address Book view, the Detailed Person view, and a Settings view.
+Next, I worked on fetching the data from the Random User API and storing it locally in the browser so that the list remains consistent across page reloads.
+I then built the list view and the detailed view using this data. For the list view, I used Bootstrap cards to present the persons' data in an appealing way. For the detailed view, I used React Router to create a separate route for each person.
+Lastly, I worked on the Settings view, allowing the user to fetch a new list of persons from the API and to manually add a person to the address book.
 
-## Available Scripts
+### Implemented Features
+1. List view of persons from the address book.
+2. Detailed view of a selected person.
+3. Fetch a new list of persons from the Random User API.
+4. Add a new person to the address book manually.
+5. All data is persistent across page reloads due to local storage usage.
+6. The application is fully responsive.
 
-In the project directory, you can run:
+### Given more time, what else would I have liked to complete
+With more time, I would have liked to implement the following:
 
-### `npm start`
+1. Full CRUD operations: Allow users to not only add persons but also update and delete existing ones.
+2. Improved error handling: While the application currently handles API request errors, it could be more robust, especially in handling user input errors.
+3. Search and filter functionality: Enable users to find a person quickly by searching or filtering the list.
+4. Sorting: Allow users to sort the list by various fields, such as by name or location.
+5. Cloud deployment: Deploy the application to a distributed cloud platform such as AWS or Azure.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Each of these features would likely take an hour to implement and test. I would have liked to implement all of them, but I decided to focus on the core features first.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Given more time, what else would I have done to make the project more robust
+1. Testing: I would have added unit tests and end-to-end tests to ensure the application works as expected and prevent regressions in the future.
+2. Improve UX: Although the UX is quite straightforward, it could always be improved. For example, adding loading spinners to indicate when the app is fetching data, or tooltips to explain certain features to the user.
+3. Optimize for performance: For a longer list, I would consider implementing pagination, infinite scroll, or virtualized list for a better user experience and app performance, especially if the user request a large number of people from the API.
