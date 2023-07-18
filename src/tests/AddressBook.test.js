@@ -1,8 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import AddressBook from '../components/AddressBook';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import {BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import {act} from "react-dom/test-utils";
 
 let mock = new MockAdapter(axios);
 
@@ -32,7 +33,7 @@ describe('AddressBook', () => {
                     email: 'john.doe@example.com',
                     phone: '+1 (123) 456-7890',
                     picture: {
-                        large: ''
+                        large: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
                     }
                 }
             ]
@@ -46,7 +47,8 @@ describe('AddressBook', () => {
             </BrowserRouter>
         );
 
-        await screen.findByText(/john doe/i);
+        // Wait for the component to finish updating before asserting
+        await waitFor(() => screen.findByText(/john doe/i));
         expect(localStorage.getItem("persons")).toBeTruthy();
     });
 
@@ -63,9 +65,10 @@ describe('AddressBook', () => {
             email: 'john.doe@example.com',
             phone: '+1 (123) 456-7890',
             picture: {
-                large: ''
+                large: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
             }
         }]);
+
 
         localStorage.setItem("persons", data);
 
@@ -80,10 +83,12 @@ describe('AddressBook', () => {
     });
 
     test('displays error message when api call fails', async () => {
-        mock.onGet('https://randomuser.me/api/?results=50').networkError();
+        mock.onGet('https://randomuser.me/api/?results=50').abortRequest();
 
         render(<AddressBook />);
 
-        await screen.findByText(/network error/i);
+        await screen.findByText(/request aborted/i);
     });
+
+
 });
